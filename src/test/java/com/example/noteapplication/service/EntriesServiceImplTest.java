@@ -65,7 +65,7 @@ class EntriesServiceImplTest {
     @Test
     void deleteEntry() {
     var entry =    entriesService.deleteEntry(4);
-          entriesService.deleteEntry(5);
+          entriesService.deleteEntry(4);
 
         assertEquals(201,entry.getStatusCode());
     }

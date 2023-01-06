@@ -13,7 +13,6 @@ public interface UserService {
     UserLoginResponse login(UserLoginRequest request);
     UserUpdateResponse update(UserUpdateRequest request);
     UserDeleteResponse delete(int id);
-
     UserDeleteResponse deleteAll();
 
 }

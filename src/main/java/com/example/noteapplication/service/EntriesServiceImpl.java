@@ -1,6 +1,7 @@
 package com.example.noteapplication.service;
 
 import com.example.noteapplication.Data.Models.Entries;
+import com.example.noteapplication.Data.Models.Note;
 import com.example.noteapplication.Data.Repository.EntriesRepository;
 import com.example.noteapplication.Data.dto.request.EntriesUpdateRequest;
 import com.example.noteapplication.Data.dto.request.EntryCreateRequest;
@@ -22,6 +23,7 @@ public class EntriesServiceImpl implements EntriesService{
         entries.setBody(request.getBody());
         entries.setTitle(request.getTitle());
         entries.setLocalDateTime(request.getLocalDateTime());
+        entries.setNoteId(request.getPostId());
         var savedEntry = entriesRepository.save(entries);
         noteService.addEntries(request.getPostId(),savedEntry);
         EntryResponse entryResponse = new EntryResponse();

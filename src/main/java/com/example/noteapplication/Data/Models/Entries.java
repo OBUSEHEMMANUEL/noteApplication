@@ -16,10 +16,8 @@ public class Entries{
     private int id;
     private String title;
     private String body;
-    private LocalDateTime localDateTime;
-
-  @ManyToOne
-  private Note note;
+    private LocalDateTime localDateTime = LocalDateTime.now();
+    private int noteId;
 
 
 }

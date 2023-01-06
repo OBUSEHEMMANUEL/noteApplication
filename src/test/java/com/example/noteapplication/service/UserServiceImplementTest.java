@@ -45,10 +45,8 @@ class UserServiceImplementTest {
 
 
     }
-
     @Test
     void registerTest() {
-
         UserRegistrationResponse registrationResponse = userService.register(registrationRequest);
         userService.register(registrationRequest2);
         assertEquals(201, registrationResponse.getStatusCode());

@@ -2,7 +2,9 @@ package com.example.noteapplication.service;
 
 import com.example.noteapplication.Data.Models.Note;
 import com.example.noteapplication.Data.dto.request.NoteCreateRequest;
+import com.example.noteapplication.Data.dto.request.NoteRetrieveRequest;
 import com.example.noteapplication.Data.dto.request.NoteUpdateRequest;
+import com.example.noteapplication.Data.dto.request.RetrieveRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,10 @@ class NoteServiceImplTest {
 
     @Test
     void retrieveNote() {
+        NoteRetrieveRequest request = new NoteRetrieveRequest();
+        request.setName("Django");
+
+        assertEquals(201, noteService.retrieveNote(request).getStatusCode());
     }
 
     @Test
@@ -58,11 +64,11 @@ class NoteServiceImplTest {
         noteService.deleteNote(3);
         assertEquals(2,noteService.viewAll().size());
 
-
-
     }
 
     @Test
     void deleteAll() {
+        noteService.deleteAll();
+        assertEquals(0,noteService.viewAll().size());
     }
 }
